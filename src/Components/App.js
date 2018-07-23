@@ -16,13 +16,17 @@ class App extends Component {
   handler(vid, vids){
     let recent = this.state.recent.slice()
     recent.unshift(vid)
-    this.setState({recent: recent, recommended: vids, curVid: vid.id})
+    let temp = new Set(recent)
+    temp = [...temp]
+    this.setState({recent: temp, recommended: vids, curVid: vid.id})
   }
 
   handleClick(obj){
     let recent = this.state.recent.slice()
     recent.unshift(obj)
-    this.setState({curVid: obj.id, recent: recent})
+    let temp = new Set(recent)
+    temp = [...temp]
+    this.setState({curVid: obj.id, recent: temp})
   }
 
   render() {

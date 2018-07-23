@@ -21,6 +21,7 @@ h4{
   align-content: space-between;
   align-items: center;
   margin-top: 5px;
+  flex-wrap: wrap;
 }
 
 .img {
