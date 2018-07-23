@@ -8,14 +8,15 @@ class App extends Component {
     super(props)
     this.state = {
       recommended: [],
-      recent: []
+      recent: [],
+      curVid: ''
     }
   }
 
-  handler(id, ids){
+  handler(vid, vids){
     let recent = this.state.recent.slice()
-    recent.unshift(id)
-    this.setState({recent: recent, recommended: ids})
+    recent.unshift(vid)
+    this.setState({recent: recent, recommended: vids, curVid: vid.id})
   }
 
   // handleClick(){
@@ -26,9 +27,9 @@ class App extends Component {
     return (
       <div>
         <h1> miniTube </h1>
-        <Player handler={this.handler.bind(this)}/>
-        <List objs={this.state.recommended} type="Recommended videos"/>
-        <List objs={this.state.recent} type="Recently watched videos"/>
+        <Player video_id={this.state.curVid} handler={this.handler.bind(this)}/>
+        {this.state.recent.length != 0 ? <List objs={this.state.recommended} type="Recommended videos"/> : null}
+        {this.state.recommended.length != 0 ? <List objs={this.state.recent} type="Recently watched videos"/> : null}
       </div>
     );
   }

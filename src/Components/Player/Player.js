@@ -8,7 +8,6 @@ class Player extends Component {
   constructor(props){
     super(props)
     this.state = {
-      video_id: '',
       inputValue: '',
       active: false
     }
@@ -26,7 +25,7 @@ class Player extends Component {
   handleAPI(inputValue){
     const API_KEY = 'AIzaSyBUqrsJUembV-NdDtdL_iEwtsNTr88Xa-I';
     YTSearch({key: API_KEY, term: inputValue}, (data)=> {
-      this.setState({video_id: data[0].id.videoId, active: true})
+      this.setState({active: true})
       let recommended = []
       for(let i = 0; i < data.length; i++){
         let temp = {
@@ -46,7 +45,7 @@ class Player extends Component {
     return (
       <div className="container">
         <Search handleSubmit={this.handleSubmit.bind(this)} handleChange={this.handleChange.bind(this)}/>
-        {this.state.active ? <Video videoId={this.state.video_id}/> : null}
+        {this.state.active ? <Video videoId={this.props.video_id}/> : null}
       </div>
     )
   }
