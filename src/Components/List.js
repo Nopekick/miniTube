@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import './List.css'
 import YTSearch from 'youtube-api-search'
+import PropTypes from 'prop-types';
 
-const List = ({objs, type}) => {
+const List = ({objs, type, handleClick}) => {
 
   const clickables = objs.map((obj)=> {
     return <div key={obj.id} className="card">
@@ -17,6 +18,12 @@ const List = ({objs, type}) => {
       {clickables}
     </div>
   </div>
+}
+
+List.propTypes = {
+  objs: PropTypes.object.isRequired,
+  type: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired
 }
 
 export default List;

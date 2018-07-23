@@ -3,6 +3,7 @@ import './Player.css'
 import Search from './Search'
 import  Video from './Video'
 import YTSearch from 'youtube-api-search'
+import PropTypes from 'prop-types'
 
 class Player extends Component {
   constructor(props){
@@ -49,6 +50,11 @@ class Player extends Component {
       </div>
     )
   }
+}
+
+Player.propTypes = {
+  video_id: PropTypes.string,
+  handler: PropTypes.func.isRequired
 }
 
 export default Player

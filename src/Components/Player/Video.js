@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types';
 
 const styles = {
   'border' : '1px solid black',
@@ -11,6 +12,10 @@ const Video = ({videoId}) => {
   return (
     <iframe width="560" height="315" src={url} style={styles}></iframe>
   )
+}
+
+Video.propTypes = {
+  videoId: PropTypes.string
 }
 
 export default Video;
