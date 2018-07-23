@@ -9,7 +9,7 @@
     "react-scripts": "1.1.4",
     "youtube-api-search": "0.0.5"
   },
-  "homepage": "https://nopekick.github.io/miniTube",
+  "homepage": "https://nopekick.github.io/miniTube/",
   "scripts": {
     "predeploy":"npm run build",
     "deploy" : "gh-pages -d build",
